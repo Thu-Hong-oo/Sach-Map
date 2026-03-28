@@ -1,62 +1,30 @@
 'use client';
 
-import { useState } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Home, Map, Users, User, Camera } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-type TabType = 'home' | 'map' | 'community' | 'profile';
+type MainLayoutProps = {
+  children?: React.ReactNode;
+};
 
-export function MainLayout() {
-  const [activeTab, setActiveTab] = useState<TabType>('home');
+export function MainLayout({ children }: MainLayoutProps) {
+  const pathname = usePathname();
 
   const navItems = [
-    { id: 'home', label: 'Home', icon: Home },
-    { id: 'map', label: 'Map', icon: Map },
-    { id: 'community', label: 'Community', icon: Users },
-    { id: 'profile', label: 'Profile', icon: User },
+    { href: '/home', label: 'Home', icon: Home },
+    { href: '/map', label: 'Map', icon: Map },
+    { href: '/community', label: 'Community', icon: Users },
+    { href: '/profile', label: 'Profile', icon: User },
   ];
 
-  const renderContent = () => {
-    switch (activeTab) {
-      case 'home':
-        return (
-          <div className="space-y-4">
-            <h1 className="text-2xl font-bold text-foreground">Welcome to SACH MAP</h1>
-            <p className="text-muted-foreground">Track and report environmental cleanups in your community.</p>
-          </div>
-        );
-      case 'map':
-        return (
-          <div className="space-y-4">
-            <h1 className="text-2xl font-bold text-foreground">Map View</h1>
-            <p className="text-muted-foreground">Explore cleanup zones and impact areas on the map.</p>
-          </div>
-        );
-      case 'community':
-        return (
-          <div className="space-y-4">
-            <h1 className="text-2xl font-bold text-foreground">Community</h1>
-            <p className="text-muted-foreground">Connect with other community members and volunteers.</p>
-          </div>
-        );
-      case 'profile':
-        return (
-          <div className="space-y-4">
-            <h1 className="text-2xl font-bold text-foreground">Profile</h1>
-            <p className="text-muted-foreground">View your personal stats and achievements.</p>
-          </div>
-        );
-      default:
-        return null;
-    }
-  };
-
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="min-h-screen bg-background flex flex-col" >
       {/* Main Content */}
       <main className="flex-1 overflow-y-auto pb-20 px-4 py-6">
         <div className="mx-auto max-w-sm">
-          {renderContent()}
+          {children}
         </div>
       </main>
 
@@ -78,12 +46,12 @@ export function MainLayout() {
           <div className="flex justify-around items-center">
             {navItems.map((item) => {
               const IconComponent = item.icon;
-              const isActive = activeTab === item.id;
+              const isActive = pathname === item.href || pathname.startsWith(`${item.href}/`);
 
               return (
-                <button
-                  key={item.id}
-                  onClick={() => setActiveTab(item.id as TabType)}
+                <Link
+                  key={item.href}
+                  href={item.href}
                   className={`flex-1 py-3 px-2 flex flex-col items-center justify-center gap-1 transition-colors ${
                     isActive
                       ? 'text-[#6B8E23]'
@@ -94,7 +62,7 @@ export function MainLayout() {
                 >
                   <IconComponent className="h-6 w-6" />
                   <span className="text-xs font-medium">{item.label}</span>
-                </button>
+                </Link>
               );
             })}
           </div>

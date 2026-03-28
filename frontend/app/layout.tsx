@@ -1,13 +1,12 @@
 import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'SACH MAP',
+  title: 'SẠCH MAP',
   description: 'Environmental cleanup and community reporting PWA',
   manifest: '/manifest.json',
   appleWebApp: {
@@ -21,7 +20,7 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/icons/icon-192x192.png',
+        url: '/icons/logo.png',
         sizes: '192x192',
         type: 'image/png',
       },
@@ -31,7 +30,7 @@ export const metadata: Metadata = {
         type: 'image/png',
       },
     ],
-    apple: '/icons/icon-192x192.png',
+    apple: '/icons/logo.png',
   },
 }
 
@@ -50,9 +49,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="font-sans antialiased" suppressHydrationWarning>
+      <head suppressHydrationWarning />
+      <body className="font-sans antialiased">
         {children}
-        <Analytics />
       </body>
     </html>
   )
