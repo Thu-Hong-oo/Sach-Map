@@ -1,0 +1,11 @@
+{
+	"nav": {
+		"home": "Home",
+		"map": "Map",
+		"community": "Community",
+		"profile": "Profile"
+	},
+	"fab": {
+		"reportNow": "Report Now"
+	}
+}

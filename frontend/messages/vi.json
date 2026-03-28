@@ -1,0 +1,11 @@
+{
+	"nav": {
+		"home": "Trang chủ",
+		"map": "Bản đồ",
+		"community": "Cộng đồng",
+		"profile": "Cá nhân"
+	},
+	"fab": {
+		"reportNow": "Báo cáo ngay"
+	}
+}
