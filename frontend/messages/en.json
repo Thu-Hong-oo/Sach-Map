@@ -7,5 +7,45 @@
 	},
 	"fab": {
 		"reportNow": "Report Now"
+	},
+	"search": {
+		"placeholder": "Search areas, reports..."
+	},
+	"home": {
+		"tabs": {
+			"all": "All Reports",
+			"nearby": "Nearby",
+			"zones": "Clean Zones"
+		},
+		"stats": {
+			"cleanZones": "Clean Zones",
+			"alerts": "Alerts"
+		},
+		"recentReports": "Recent Reports"
+	},
+	"report": {
+		"status": {
+			"pending": "Pending",
+			"reviewing": "Under Review",
+			"resolved": "Resolved"
+		}
+	},
+	"pages": {
+		"community": {
+			"title": "Community",
+			"description": "Connect with other volunteers and local residents."
+		},
+		"map": {
+			"title": "Map",
+			"description": "Explore reports and high-risk areas on the map."
+		},
+		"profile": {
+			"title": "Profile",
+			"description": "View your impact, activity and achievements."
+		},
+		"report": {
+			"title": "Report",
+			"description": "Create a new violation report."
+		}
 	}
 }

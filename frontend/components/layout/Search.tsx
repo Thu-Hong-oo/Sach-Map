@@ -3,6 +3,7 @@
 import { Search, Settings } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { useLocaleContext } from '@/lib/context/LocaleContext';
 
 interface SearchBarProps {
   onSearch?: (query: string) => void;
@@ -10,6 +11,8 @@ interface SearchBarProps {
 }
 
 export function SearchBar({ onSearch, onFilterClick }: SearchBarProps) {
+  const { messages } = useLocaleContext();
+
   return (
     <div className="px-4 py-3 bg-white border-b border-gray-100 space-y-3">
   
@@ -18,7 +21,7 @@ export function SearchBar({ onSearch, onFilterClick }: SearchBarProps) {
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
           <Input
             type="text"
-            placeholder="Search areas, reports..."
+            placeholder={messages.search.placeholder}
             className="pl-9 pr-4 h-9 text-sm bg-gray-50 border-gray-200"
             onChange={(e) => onSearch?.(e.target.value)}
           />

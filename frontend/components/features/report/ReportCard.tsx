@@ -1,5 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { useLocaleContext } from '@/lib/context/LocaleContext';
 
 interface ReportCardProps {
   id: string;
@@ -11,6 +12,8 @@ interface ReportCardProps {
 }
 
 export function ReportCard({ id, title, description, status, location, date }: ReportCardProps) {
+  const { messages } = useLocaleContext();
+
   return (
     <Card>
       <CardHeader>
@@ -20,7 +23,11 @@ export function ReportCard({ id, title, description, status, location, date }: R
             <CardDescription>{location}</CardDescription>
           </div>
           <Badge variant={status === 'resolved' ? 'default' : 'secondary'}>
-            {status === 'pending' ? 'Chờ xử lý' : status === 'reviewing' ? 'Đang xem xét' : 'Đã giải quyết'}
+            {status === 'pending'
+              ? messages.report.status.pending
+              : status === 'reviewing'
+                ? messages.report.status.reviewing
+                : messages.report.status.resolved}
           </Badge>
         </div>
       </CardHeader>

@@ -7,5 +7,45 @@
 	},
 	"fab": {
 		"reportNow": "Báo cáo ngay"
+	},
+	"search": {
+		"placeholder": "Tìm khu vực, báo cáo..."
+	},
+	"home": {
+		"tabs": {
+			"all": "Tất cả báo cáo",
+			"nearby": "Gần bạn",
+			"zones": "Vùng xanh"
+		},
+		"stats": {
+			"cleanZones": "Vùng xanh",
+			"alerts": "Cảnh báo"
+		},
+		"recentReports": "Báo cáo gần đây"
+	},
+	"report": {
+		"status": {
+			"pending": "Chờ xử lý",
+			"reviewing": "Đang xem xét",
+			"resolved": "Đã giải quyết"
+		}
+	},
+	"pages": {
+		"community": {
+			"title": "Cộng đồng",
+			"description": "Kết nối với các tình nguyện viên và cư dân địa phương."
+		},
+		"map": {
+			"title": "Bản đồ",
+			"description": "Khám phá báo cáo và khu vực rủi ro trên bản đồ."
+		},
+		"profile": {
+			"title": "Hồ sơ cá nhân",
+			"description": "Xem tác động, hoạt động và thành tích của bạn."
+		},
+		"report": {
+			"title": "Báo cáo",
+			"description": "Tạo báo cáo vi phạm mới."
+		}
 	}
 }

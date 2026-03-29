@@ -1,12 +1,10 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useMemo, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { Home, Map, Users, User, Camera } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import enMessages from '@/messages/en.json';
-import viMessages from '@/messages/vi.json';
+import { useLocaleContext } from '@/lib/context/LocaleContext';
 
 type MainLayoutProps = {
   children?: React.ReactNode;
@@ -14,25 +12,7 @@ type MainLayoutProps = {
 
 export function MainLayout({ children }: MainLayoutProps) {
   const pathname = usePathname();
-  const [locale, setLocale] = useState<'vi' | 'en'>('vi');
-
-  useEffect(() => {
-    const savedLocale = window.localStorage.getItem('locale');
-    if (savedLocale === 'vi' || savedLocale === 'en') {
-      setLocale(savedLocale);
-      return;
-    }
-
-    const browserLocale = navigator.language.toLowerCase().startsWith('en') ? 'en' : 'vi';
-    setLocale(browserLocale);
-  }, []);
-
-  const t = useMemo(() => (locale === 'en' ? enMessages : viMessages), [locale]);
-
-  const changeLocale = (nextLocale: 'vi' | 'en') => {
-    setLocale(nextLocale);
-    window.localStorage.setItem('locale', nextLocale);
-  };
+  const { locale, messages, changeLocale } = useLocaleContext();
 
   const navItems = [
     { href: '/home', key: 'home', icon: Home },
@@ -73,8 +53,8 @@ export function MainLayout({ children }: MainLayoutProps) {
         <Button
           size="lg"
           className="h-16 w-16 rounded-full shadow-lg bg-[#6B8E23] hover:bg-[#5a7620] text-white flex items-center justify-center"
-          aria-label={t.fab.reportNow}
-          title={t.fab.reportNow}
+          aria-label={messages.fab.reportNow}
+          title={messages.fab.reportNow}
         >
           <Camera className="h-8 w-8" />
         </Button>
@@ -97,11 +77,11 @@ export function MainLayout({ children }: MainLayoutProps) {
                       ? 'text-[#6B8E23]'
                       : 'text-muted-foreground hover:text-foreground'
                   }`}
-                  aria-label={t.nav[item.key as keyof typeof t.nav]}
+                  aria-label={messages.nav[item.key as keyof typeof messages.nav]}
                   aria-current={isActive ? 'page' : undefined}
                 >
                   <IconComponent className="h-6 w-6" />
-                  <span className="text-xs font-medium">{t.nav[item.key as keyof typeof t.nav]}</span>
+                  <span className="text-xs font-medium">{messages.nav[item.key as keyof typeof messages.nav]}</span>
                 </Link>
               );
             })}
