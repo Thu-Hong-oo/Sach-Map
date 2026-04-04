@@ -46,6 +46,43 @@
 		"report": {
 			"title": "Báo cáo",
 			"description": "Tạo báo cáo vi phạm mới."
+		},
+		"reportQuickFlow": {
+			"title": "Báo cáo nhanh SẠCH MAP - 4 bước",
+			"description": "Luồng báo cáo đơn giản, thân thiện cho mọi công dân.",
+			"next": "Tiếp tục",
+			"back": "Quay lại",
+			"uploadButton": "Mở camera / tải ảnh vi phạm",
+			"autoLocate": "Tự động phát hiện vị trí",
+			"detectingLocation": "Đang xác định vị trí...",
+			"titlePlaceholder": "AI gợi ý tiêu đề vi phạm...",
+			"descriptionPlaceholder": "AI gợi ý mô tả chi tiết...",
+			"aiGeneratedNotice": "Nội dung được AI đề xuất từ hình ảnh, bạn có thể chỉnh sửa trước khi gửi.",
+			"confirmSubmit": "Xác nhận gửi báo cáo",
+			"success": "Báo cáo đã được gửi thành công.",
+			"trackingId": "Mã theo dõi",
+			"step1Hint": "Chụp ảnh trực tiếp hoặc tải ảnh có sẵn về hành vi vi phạm.",
+			"step2Hint": "Hệ thống tự nhận vị trí và bạn có thể chạm mini map để tinh chỉnh.",
+			"step3Hint": "AI đề xuất tiêu đề và mô tả dựa trên ảnh vi phạm.",
+			"step4Hint": "Chọn nhóm vi phạm, xác nhận và nhận mã theo dõi xử lý.",
+			"steps": {
+				"step1": "Ảnh",
+				"step2": "Vị trí",
+				"step3": "AI mô tả",
+				"step4": "Xác nhận"
+			},
+			"categories": {
+				"illegal_dumping": "Đổ rác trái phép",
+				"wastewater": "Xả nước thải",
+				"burning": "Đốt rác",
+				"toxic_odor": "Mùi độc hại",
+				"noise": "Tiếng ồn",
+				"other": "Khác"
+			}
+		},
+		"mapExperience": {
+			"title": "SẠCH MAP - Bản đồ tương tác môi trường",
+			"description": "Xem điểm vi phạm, cụm nóng ô nhiễm và tiến độ xử lý theo thời gian thực."
 		}
 	}
 }

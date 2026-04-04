@@ -46,6 +46,43 @@
 		"report": {
 			"title": "Report",
 			"description": "Create a new violation report."
+		},
+		"reportQuickFlow": {
+			"title": "SACH MAP Quick Report - 4 Steps",
+			"description": "A clean and user-friendly reporting flow for all citizens.",
+			"next": "Next",
+			"back": "Back",
+			"uploadButton": "Open camera / upload violation photo",
+			"autoLocate": "Auto-detect location",
+			"detectingLocation": "Detecting your location...",
+			"titlePlaceholder": "AI-suggested violation title...",
+			"descriptionPlaceholder": "AI-suggested violation description...",
+			"aiGeneratedNotice": "The content is AI-generated from your image and can be edited before submission.",
+			"confirmSubmit": "Confirm and submit",
+			"success": "Report submitted successfully.",
+			"trackingId": "Tracking ID",
+			"step1Hint": "Capture a photo now or upload an existing violation image.",
+			"step2Hint": "Location is detected automatically, then fine-tuned using the mini map picker.",
+			"step3Hint": "AI suggests title and description based on the uploaded image.",
+			"step4Hint": "Select a violation type, confirm submission, and receive a unique tracking ID.",
+			"steps": {
+				"step1": "Photo",
+				"step2": "Location",
+				"step3": "AI Draft",
+				"step4": "Confirm"
+			},
+			"categories": {
+				"illegal_dumping": "Illegal dumping",
+				"wastewater": "Wastewater",
+				"burning": "Burning waste",
+				"toxic_odor": "Toxic odor",
+				"noise": "Noise",
+				"other": "Other"
+			}
+		},
+		"mapExperience": {
+			"title": "SACH MAP - Interactive Environmental Map",
+			"description": "Track reports, pollution hotspots, and processing progress in real time."
 		}
 	}
 }

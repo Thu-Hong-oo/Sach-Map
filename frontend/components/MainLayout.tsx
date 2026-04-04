@@ -13,6 +13,7 @@ type MainLayoutProps = {
 export function MainLayout({ children }: MainLayoutProps) {
   const pathname = usePathname();
   const { locale, messages, changeLocale } = useLocaleContext();
+  const isMapRoute = pathname === '/map' || pathname.startsWith('/map/');
 
   const navItems = [
     { href: '/home', key: 'home', icon: Home },
@@ -22,10 +23,10 @@ export function MainLayout({ children }: MainLayoutProps) {
   ];
 
   return (
-    <div className="min-h-screen bg-background flex flex-col" >
+    <div className="flex min-h-dvh flex-col bg-background">
       {/* Main Content */}
-      <main className="flex-1 overflow-y-auto pb-20 px-4 py-6">
-        <div className="mx-auto max-w-sm">
+      <main className="flex-1 overflow-y-auto px-4 py-6 pb-[calc(5.25rem+env(safe-area-inset-bottom))]">
+        <div className="mx-auto h-full w-full max-w-sm">
           <div className="mb-4 flex justify-end gap-2">
             <Button
               size="sm"
@@ -49,7 +50,8 @@ export function MainLayout({ children }: MainLayoutProps) {
       </main>
 
       {/* Floating Action Button (FAB) */}
-      <div className="fixed bottom-24 left-1/2 transform -translate-x-1/2 z-40">
+      {!isMapRoute && (
+        <div className="fixed left-1/2 z-40 -translate-x-1/2 bottom-[calc(6rem+env(safe-area-inset-bottom))]">
         <Button
           size="lg"
           className="h-16 w-16 rounded-full shadow-lg bg-[#6B8E23] hover:bg-[#5a7620] text-white flex items-center justify-center"
@@ -58,10 +60,11 @@ export function MainLayout({ children }: MainLayoutProps) {
         >
           <Camera className="h-8 w-8" />
         </Button>
-      </div>
+        </div>
+      )}
 
       {/* Bottom Navigation Bar */}
-      <nav className="fixed bottom-0 left-0 right-0 bg-background border-t border-border">
+      <nav className="fixed bottom-0 left-0 right-0 border-t border-border bg-background pb-[env(safe-area-inset-bottom)]">
         <div className="mx-auto max-w-sm">
           <div className="flex justify-around items-center">
             {navItems.map((item) => {

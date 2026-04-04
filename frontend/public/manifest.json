@@ -2,7 +2,10 @@
   "name": "Sạch Map - Community Environmental Reporting",
   "short_name": "Sạch Map",
   "description": "Hệ sinh thái Agentic AI tự động hóa quy trình: Phát hiện → Điều phối → Giám sát",
+  "id": "/",
+  "scope": "/",
   "start_url": "/",
+  "display_override": ["standalone", "minimal-ui", "browser"],
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#6B8E23",
@@ -25,6 +28,34 @@
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Báo cáo nhanh",
+      "short_name": "Báo cáo",
+      "description": "Mở luồng báo cáo 4 bước",
+      "url": "/report",
+      "icons": [
+        {
+          "src": "/icons/icon-192x192-maskable.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Bản đồ nóng",
+      "short_name": "Map",
+      "description": "Mở bản đồ SẠCH MAP",
+      "url": "/map",
+      "icons": [
+        {
+          "src": "/icons/icon-192x192-maskable.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
     }
   ],
   "categories": ["environment", "social"],
