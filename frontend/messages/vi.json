@@ -84,5 +84,113 @@
 			"title": "SẠCH MAP - Bản đồ tương tác môi trường",
 			"description": "Xem điểm vi phạm, cụm nóng ô nhiễm và tiến độ xử lý theo thời gian thực."
 		}
+	},
+	"landing": {
+		"nav": {
+			"features": "Tính năng",
+			"workflow": "Cách hoạt động",
+			"impact": "Tác động",
+			"launch": "Mở ứng dụng"
+		},
+		"hero": {
+			"kicker": "AI tác nhân cho quản trị môi trường đô thị",
+			"title": ["SẠCH MAP", "giúp đô thị", "phản ứng nhanh hơn"],
+			"description": "Biến các báo cáo cộng đồng rời rạc thành giải pháp đô thị có cấu trúc và có thể hành động. Giám sát thời gian thực, phân loại bằng AI và tự động chuyển cấp xử lý vi phạm.",
+			"primaryCta": "Báo cáo ngay",
+			"secondaryCta": "Tải ứng dụng",
+			"stats": [
+				{"value": "2.3K+", "label": "Báo cáo hôm nay"},
+				{"value": "89%", "label": "Đã xử lý"},
+				{"value": "24h", "label": "Phản hồi TB"}
+			]
+		},
+		"problem": {
+			"badge": "Vấn đề",
+			"title": "Vi phạm môi trường chưa được xử lý kịp thời",
+			"description": "Cộng đồng liên tục phản ánh, nhưng thiếu dữ liệu có cấu trúc và điều phối đồng bộ khiến vi phạm dễ bị bỏ sót.",
+			"stats": [
+				{"value": "131", "label": "Ca ngộ độc thực phẩm", "note": "Ghi nhận trong năm 2024 trên toàn thành phố"},
+				{"value": "41%", "label": "Xử lý thủ công", "note": "Tỷ lệ báo cáo vẫn phải xử lý bằng tay"},
+				{"value": "7-14 ngày", "label": "Thời gian phản hồi TB", "note": "Trước khi có hành động xử lý"}
+			],
+			"challengeTitle": "Vì sao còn khoảng trống?",
+			"challenges": [
+				{"title": "Báo cáo phân tán", "description": "Báo cáo cộng đồng đến từ nhiều kênh với định dạng không đồng nhất"},
+				{"title": "Thiếu phân loại", "description": "Vi phạm quan trọng chưa được gắn mức độ ưu tiên và danh mục rõ ràng"},
+				{"title": "Điều phối thủ công", "description": "Việc chuyển xử lý cho cơ quan chức năng vẫn phụ thuộc nhiều vào con người"},
+				{"title": "Thiếu phân tích", "description": "Báo cáo chưa được phân tích xu hướng, mẫu hình hay rủi ro mới"}
+			]
+		},
+		"bento": {
+			"title": "Hệ sinh thái Green Agent",
+			"description": "Bốn trụ cột phối hợp để chuyển quản trị môi trường từ bị động sang chủ động, từ thủ công sang tự động.",
+			"items": [
+				{"badge": "Quan sát", "title": "Quan sát tự động", "description": "Theo dõi liên tục báo cáo cộng đồng, mạng xã hội và tín hiệu môi trường để phát hiện vi phạm."},
+				{"badge": "Suy luận", "title": "Suy luận & Lập kế hoạch", "description": "Phân tích mẫu hình, phân loại mức độ nghiêm trọng và chọn chiến lược phản hồi phù hợp."},
+				{"badge": "Hành động", "title": "Tự động hành động", "description": "Tạo chuyển cấp xử lý, thông báo cơ quan chức năng và phản hồi cho cộng đồng theo thời gian thực."},
+				{"badge": "Chuyển cấp", "title": "Chuyển cấp thông minh", "description": "Điều hướng các vụ việc nghiêm trọng tới cơ quan phù hợp và theo dõi tiến độ xử lý."}
+			]
+		},
+		"workflow": {
+			"title": "Vòng lặp tác nhân",
+			"description": "Giám sát liên tục và phản hồi phối hợp nhờ AI tác nhân",
+			"stages": [
+				{"title": "Quan sát", "description": "Phân tích báo cáo cộng đồng, dữ liệu cảm biến và các tín hiệu môi trường đầu vào"},
+				{"title": "Lập kế hoạch", "description": "Suy luận mức độ vi phạm, xác định độ ưu tiên và quyết định phương án xử lý"},
+				{"title": "Hành động", "description": "Thực thi chuyển cấp, thông báo cơ quan chức năng và gửi phản hồi đến cộng đồng"},
+				{"title": "Giám sát", "description": "Theo dõi tiến độ xử lý và đo hiệu quả phản hồi"},
+				{"title": "Chuyển cấp", "description": "Đảm bảo các vụ việc nghiêm trọng đến đúng người ra quyết định"}
+			],
+			"benefits": [
+				{"title": "Tốc độ", "description": "Xử lý trong vài giờ thay vì vài ngày"},
+				{"title": "Nhất quán", "description": "Mọi báo cáo được xử lý theo cùng một chuẩn"},
+				{"title": "Khả năng mở rộng", "description": "Xử lý hơn 1000 báo cáo với chất lượng ổn định"}
+			]
+		},
+		"impact": {
+			"title": "Tác động thực tế, kết quả thực tế",
+			"stats": [
+				{"value": "2.3K+", "label": "Báo cáo đã xử lý"},
+				{"value": "89%", "label": "Tỷ lệ giải quyết"},
+				{"value": "24h", "label": "Thời gian phản hồi TB"},
+				{"value": "1.2M", "label": "Người dân được trao quyền"}
+			]
+		},
+		"cta": {
+			"title": "Sẵn sàng làm sạch thành phố của bạn?",
+			"highlight": "làm sạch",
+			"description": "Cài đặt SẠCH MAP ngay hôm nay và bắt đầu báo cáo vi phạm môi trường trong cộng đồng. Mỗi báo cáo đều có giá trị.",
+			"primaryCta": "Cài đặt ngay",
+			"secondaryCta": "Tìm hiểu thêm",
+			"benefits": [
+				{"title": "Ưu tiên di động", "description": "Tối ưu cho smartphone và tablet để báo cáo mọi lúc mọi nơi"},
+				{"title": "Truy cập tức thì", "description": "Trải nghiệm như ứng dụng mà không cần lên App Store"},
+				{"title": "Tập trung riêng tư", "description": "Dữ liệu ở trên thiết bị của bạn, hạn chế theo dõi"},
+				{"title": "Hoạt động offline", "description": "Báo cáo vi phạm ngay cả khi không có internet"}
+			],
+			"installTitle": "Cách cài đặt",
+			"ios": {
+				"title": "iPhone/iPad",
+				"steps": ["Mở trang này bằng Safari", "Nhấn nút Chia sẻ", "Chọn \"Thêm vào Màn hình chính\"", "Nhấn \"Thêm\" để xác nhận", "Mở từ màn hình chính"]
+			},
+			"android": {
+				"title": "Android",
+				"steps": ["Mở trang này bằng Chrome", "Nhấn nút menu (⋮)", "Chọn \"Cài đặt ứng dụng\"", "Nhấn \"Cài đặt\"", "Cấp các quyền cần thiết"]
+			},
+			"desktop": {
+				"title": "Máy tính (PWA)",
+				"steps": ["Mở trang này bằng Chrome/Edge", "Tìm biểu tượng cài đặt trên thanh địa chỉ", "Nhấn nút cài đặt", "Xác nhận cài đặt", "Ứng dụng sẽ mở trong cửa sổ riêng"]
+			},
+			"faq": "Có thắc mắc? Xem FAQ hoặc liên hệ hỗ trợ",
+			"free": "SẠCH MAP miễn phí. Không gói thuê bao. Không theo dõi. Chỉ có sức mạnh cộng đồng."
+		},
+		"footer": {
+			"product": "Sản phẩm",
+			"company": "Công ty",
+			"legal": "Pháp lý",
+			"follow": "Theo dõi",
+			"rights": "Đã đăng ký mọi quyền.",
+			"tagline": "Dành cho quản trị môi trường đô thị"
+		}
 	}
 }

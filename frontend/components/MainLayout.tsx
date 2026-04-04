@@ -14,6 +14,8 @@ export function MainLayout({ children }: MainLayoutProps) {
   const pathname = usePathname();
   const { locale, messages, changeLocale } = useLocaleContext();
   const isMapRoute = pathname === '/map' || pathname.startsWith('/map/');
+  const isLandingOrAuth = pathname === '/' || pathname === '/login' || pathname === '/signup' || pathname.startsWith('/(auth)');
+  const showNavigation = !isLandingOrAuth;
 
   const navItems = [
     { href: '/home', key: 'home', icon: Home },
@@ -25,9 +27,9 @@ export function MainLayout({ children }: MainLayoutProps) {
   return (
     <div className="flex min-h-dvh flex-col bg-background">
       {/* Main Content */}
-      <main className="flex-1 overflow-y-auto px-4 py-6 pb-[calc(5.25rem+env(safe-area-inset-bottom))]">
+      <main className={`flex-1 overflow-y-auto px-4 py-6 ${showNavigation ? 'pb-[calc(5.25rem+env(safe-area-inset-bottom))]' : ''}`}>
         <div className="mx-auto h-full w-full max-w-sm">
-          <div className="mb-4 flex justify-end gap-2">
+          {showNavigation && <div className="mb-4 flex justify-end gap-2">
             <Button
               size="sm"
               variant={locale === 'vi' ? 'default' : 'outline'}
@@ -44,27 +46,27 @@ export function MainLayout({ children }: MainLayoutProps) {
             >
               EN
             </Button>
-          </div>
+          </div>}
           {children}
         </div>
       </main>
 
       {/* Floating Action Button (FAB) */}
-      {!isMapRoute && (
-        <div className="fixed left-1/2 z-40 -translate-x-1/2 bottom-[calc(6rem+env(safe-area-inset-bottom))]">
+      {showNavigation && !isMapRoute && (
+        <div className="fixed left-1/2 -translate-x-1/2 z-40 bottom-[calc(4.75rem+env(safe-area-inset-bottom))]">
         <Button
           size="lg"
-          className="h-16 w-16 rounded-full shadow-lg bg-[#6B8E23] hover:bg-[#5a7620] text-white flex items-center justify-center"
+            className="h-14 w-14 rounded-full shadow-lg shadow-[#3f5613]/30 bg-[#6B8E23]/80 border-none"
           aria-label={messages.fab.reportNow}
           title={messages.fab.reportNow}
         >
-          <Camera className="h-8 w-8" />
+          <Camera className="h-6 w-6" />
         </Button>
         </div>
       )}
 
       {/* Bottom Navigation Bar */}
-      <nav className="fixed bottom-0 left-0 right-0 border-t border-border bg-background pb-[env(safe-area-inset-bottom)]">
+      {showNavigation && <nav className="fixed bottom-0 left-0 right-0 border-t border-border bg-background pb-[env(safe-area-inset-bottom)]">
         <div className="mx-auto max-w-sm">
           <div className="flex justify-around items-center">
             {navItems.map((item) => {
@@ -90,7 +92,7 @@ export function MainLayout({ children }: MainLayoutProps) {
             })}
           </div>
         </div>
-      </nav>
+      </nav>}
     </div>
   );
 }
