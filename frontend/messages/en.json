@@ -84,5 +84,113 @@
 			"title": "SACH MAP - Interactive Environmental Map",
 			"description": "Track reports, pollution hotspots, and processing progress in real time."
 		}
+	},
+	"landing": {
+		"nav": {
+			"features": "Features",
+			"workflow": "How It Works",
+			"impact": "Impact",
+			"launch": "Launch App"
+		},
+		"hero": {
+			"kicker": "Agentic AI for urban environmental governance",
+			"title": ["SẠCH MAP", "helps cities", "act faster"],
+			"description": "Transform scattered community reports into structured, actionable urban solutions. Real-time monitoring, AI-powered classification, and automated escalation for violations.",
+			"primaryCta": "Start Reporting",
+			"secondaryCta": "Download App",
+			"stats": [
+				{"value": "2.3K+", "label": "Reports Today"},
+				{"value": "89%", "label": "Resolved"},
+				{"value": "24h", "label": "Avg Response"}
+			]
+		},
+		"problem": {
+			"badge": "The Problem",
+			"title": "Environmental violations go unaddressed",
+			"description": "Communities report problems, but without structured data and coordination, violations slip through the cracks.",
+			"stats": [
+				{"value": "131", "label": "Food Poisoning Incidents", "note": "Reported in 2024 across the city"},
+				{"value": "41%", "label": "Manual Handling", "note": "Of reports processed without automation"},
+				{"value": "7-14 days", "label": "Average Response Time", "note": "Before action is taken on violations"}
+			],
+			"challengeTitle": "Why the gap?",
+			"challenges": [
+				{"title": "Scattered Reports", "description": "Community reports come through multiple channels with inconsistent formats"},
+				{"title": "No Classification", "description": "Critical violations lack structured categorization and priority tagging"},
+				{"title": "Manual Coordination", "description": "Routing to authorities and tracking requires manual effort and oversight"},
+				{"title": "No Intelligence", "description": "Reports are not analyzed for patterns, trends, or emerging risks"}
+			]
+		},
+		"bento": {
+			"title": "The Green Agent Ecosystem",
+			"description": "Four pillars working together to transform environmental governance from reactive to proactive, from manual to automated.",
+			"items": [
+				{"badge": "Observe", "title": "Autonomous Observation", "description": "Continuously monitors community reports, social media, and embedded signals for environmental violations."},
+				{"badge": "Reason", "title": "Reasoning & Planning", "description": "Analyzes patterns, classifies severity, and determines the best response strategy."},
+				{"badge": "Act", "title": "Automated Action", "description": "Creates escalations, notifies authorities, and sends community feedback in real time."},
+				{"badge": "Escalate", "title": "Smart Escalation", "description": "Routes critical issues to the right agencies and tracks resolution progress."}
+			]
+		},
+		"workflow": {
+			"title": "The Agentic Cycle",
+			"description": "Continuous monitoring and coordinated response through agentic intelligence",
+			"stages": [
+				{"title": "Observe", "description": "Analyze incoming community reports, sensor data, and environmental signals"},
+				{"title": "Plan", "description": "Reason about violations, determine severity, and decide the action strategy"},
+				{"title": "Act", "description": "Execute escalations, notify authorities, and send notifications to the community"},
+				{"title": "Monitor", "description": "Track resolution progress and measure response effectiveness"},
+				{"title": "Escalate", "description": "Ensure critical cases reach appropriate decision-makers"}
+			],
+			"benefits": [
+				{"title": "Speed", "description": "Issues resolved in hours, not days"},
+				{"title": "Consistency", "description": "Every report handled by the same standards"},
+				{"title": "Scalability", "description": "Handles 1000+ reports with the same quality"}
+			]
+		},
+		"impact": {
+			"title": "Real Impact, Real Results",
+			"stats": [
+				{"value": "2.3K+", "label": "Reports Processed"},
+				{"value": "89%", "label": "Resolution Rate"},
+				{"value": "24h", "label": "Avg Response Time"},
+				{"value": "1.2M", "label": "Citizens Empowered"}
+			]
+		},
+		"cta": {
+			"title": "Ready to clean up your city?",
+			"highlight": "clean up",
+			"description": "Install SẠCH MAP today and start reporting environmental violations in your community. Every report counts.",
+			"primaryCta": "Install Now",
+			"secondaryCta": "Learn More",
+			"benefits": [
+				{"title": "Mobile First", "description": "Optimized for smartphones and tablets for on-the-go reporting"},
+				{"title": "Instant Access", "description": "App-like experience without App Store requirements"},
+				{"title": "Privacy Focused", "description": "Data remains on your device, minimal tracking"},
+				{"title": "Works Offline", "description": "Report violations even without internet connection"}
+			],
+			"installTitle": "How to install",
+			"ios": {
+				"title": "iPhone/iPad",
+				"steps": ["Open this page in Safari", "Tap the Share button", "Select \"Add to Home Screen\"", "Tap \"Add\" to confirm", "Open from your home screen"]
+			},
+			"android": {
+				"title": "Android",
+				"steps": ["Open this page in Chrome", "Tap the menu button (⋮)", "Select \"Install app\"", "Tap \"Install\"", "Grant necessary permissions"]
+			},
+			"desktop": {
+				"title": "Desktop (PWA)",
+				"steps": ["Open this page in Chrome/Edge", "Look for install icon in the URL bar", "Click the install button", "Confirm installation", "App opens in its own window"]
+			},
+			"faq": "Questions? Check out our FAQ or contact support",
+			"free": "SẠCH MAP is free to use. No subscriptions. No tracking. Just community power."
+		},
+		"footer": {
+			"product": "Product",
+			"company": "Company",
+			"legal": "Legal",
+			"follow": "Follow",
+			"rights": "All rights reserved.",
+			"tagline": "Made for urban environmental governance"
+		}
 	}
 }
