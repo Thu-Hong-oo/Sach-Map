@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useMemo } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   ArrowRight,
@@ -25,15 +25,83 @@ import {
 import { Button } from '@/components/ui/button';
 import { useLocaleMessages } from '@/lib/hooks/useLocaleMessages';
 
+type BeforeInstallPromptEvent = Event & {
+  prompt: () => Promise<void>;
+  userChoice: Promise<{ outcome: 'accepted' | 'dismissed'; platform: string }>;
+};
+
 export default function LandingPage() {
   const { locale, messages, changeLocale } = useLocaleMessages();
   const landing = useMemo(() => (messages as any).landing, [messages]);
   const isEnglish = locale === 'en';
+  const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
+  const [installFeedback, setInstallFeedback] = useState('');
 
   const heroHighlights = landing.hero.title;
   const featureItems = landing.bento.items;
   const workflowStages = landing.workflow.stages;
   const workflowBenefits = landing.workflow.benefits;
+
+  useEffect(() => {
+    const onBeforeInstallPrompt = (event: Event) => {
+      event.preventDefault();
+      setDeferredPrompt(event as BeforeInstallPromptEvent);
+    };
+
+    const onAppInstalled = () => {
+      setDeferredPrompt(null);
+      setInstallFeedback(
+        isEnglish
+          ? 'SACH MAP has been installed successfully.'
+          : 'SẠCH MAP đã được cài đặt thành công.'
+      );
+    };
+
+    window.addEventListener('beforeinstallprompt', onBeforeInstallPrompt);
+    window.addEventListener('appinstalled', onAppInstalled);
+
+    return () => {
+      window.removeEventListener('beforeinstallprompt', onBeforeInstallPrompt);
+      window.removeEventListener('appinstalled', onAppInstalled);
+    };
+  }, [isEnglish]);
+
+  const scrollToInstallGuide = useCallback(() => {
+    const installGuide = document.getElementById('install-guide');
+    installGuide?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, []);
+
+  const handleInstallClick = useCallback(async () => {
+    if (!deferredPrompt) {
+      setInstallFeedback(
+        isEnglish
+          ? 'Your browser does not support install prompt. Follow the installation guide below.'
+          : 'Trình duyệt của bạn chưa hỗ trợ popup cài đặt. Hãy làm theo hướng dẫn bên dưới.'
+      );
+      scrollToInstallGuide();
+      return;
+    }
+
+    await deferredPrompt.prompt();
+    const choice = await deferredPrompt.userChoice;
+
+    if (choice.outcome === 'accepted') {
+      setInstallFeedback(
+        isEnglish
+          ? 'Installation started. You can open SACH MAP from your home screen.'
+          : 'Đã bắt đầu cài đặt. Bạn có thể mở SẠCH MAP từ màn hình chính.'
+      );
+    } else {
+      setInstallFeedback(
+        isEnglish
+          ? 'Installation was dismissed. You can try again anytime.'
+          : 'Bạn đã đóng hộp thoại cài đặt. Bạn có thể thử lại bất cứ lúc nào.'
+      );
+      scrollToInstallGuide();
+    }
+
+    setDeferredPrompt(null);
+  }, [deferredPrompt, isEnglish, scrollToInstallGuide]);
 
   return (
     <main className="min-h-screen bg-white overflow-hidden">
@@ -120,13 +188,22 @@ export default function LandingPage() {
                 </span>
                 <span className="absolute inset-0 bg-linear-to-r from-[#7a9a2e] to-[#5a7620]" />
               </Button>
-              <Button variant="outline" className="rounded-xl border-[#d8e4c2] px-8 py-6 text-lg font-semibold hover:bg-[#f0f7e6]">
+              <Button
+                variant="outline"
+                className="rounded-xl border-[#d8e4c2] px-8 py-6 text-lg font-semibold hover:bg-[#f0f7e6]"
+                onClick={handleInstallClick}
+              >
                 <span className="flex items-center gap-2">
                   <Download className="h-5 w-5" />
                   {landing.hero.secondaryCta}
                 </span>
               </Button>
             </div>
+            {installFeedback ? (
+              <p className="mx-auto mt-4 max-w-xl rounded-lg border border-[#d8e4c2] bg-[#f7fbef] px-4 py-2 text-sm text-[#466114]">
+                {installFeedback}
+              </p>
+            ) : null}
           </motion.div>
 
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }} className="grid grid-cols-3 gap-4 sm:gap-6">
@@ -336,7 +413,10 @@ export default function LandingPage() {
             </h2>
             <p className="mx-auto mb-8 max-w-2xl text-xl text-slate-600">{landing.cta.description}</p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Button className="h-auto rounded-xl bg-[#6B8E23] px-8 py-6 text-lg font-semibold text-white hover:bg-[#5a7620]">
+              <Button
+                className="h-auto rounded-xl bg-[#6B8E23] px-8 py-6 text-lg font-semibold text-white hover:bg-[#5a7620]"
+                onClick={handleInstallClick}
+              >
                 <Download className="mr-2 h-5 w-5" />
                 {landing.cta.primaryCta}
               </Button>
@@ -362,7 +442,7 @@ export default function LandingPage() {
             })}
           </div>
 
-          <div className="rounded-2xl border border-[#d8e4c2] bg-white p-8 sm:p-12">
+          <div id="install-guide" className="rounded-2xl border border-[#d8e4c2] bg-white p-8 sm:p-12">
             <h3 className="mb-8 text-2xl font-bold text-slate-900">{landing.cta.installTitle}</h3>
             <div className="grid gap-8 md:grid-cols-3">
               {[
